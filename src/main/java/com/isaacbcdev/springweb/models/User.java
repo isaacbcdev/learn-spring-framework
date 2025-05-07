@@ -1,29 +1,28 @@
 package com.isaacbcdev.springweb.models;
 
-public class User {
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
+public class User {
+    private static int counter = 0;
+    final private int id;
     private String name;
     private String lastname;
+    private String email;
 
     public User(String name, String lastname) {
+        id = ++counter;
         this.name = name;
         this.lastname = lastname;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public User(String name, String lastName, String mail) {
+        id = ++counter;
         this.name = name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastname = lastName;
+        this.email = mail;
     }
 
     public String getFullName() {
