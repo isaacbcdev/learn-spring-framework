@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/mvc") // This will map all requests to /mvc
+@RequestMapping() // This will map all requests to /mvc
 public class UserController {
     // This class will handle user-related request,
     // For example, creating a new user, updating user information, etc.
@@ -31,6 +31,8 @@ public class UserController {
 
         User user = new User("Isaac", "Coding");
         model.addAttribute("user", user);
+        model.addAttribute("message", "Hola bro como estas");
+        model.addAttribute("code", 1520);
         return "details"; // This will return the "details" view
         // It is case-sensitive
         // and should match the name of the HTML file in the 'templates' directory.

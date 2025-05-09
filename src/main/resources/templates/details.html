@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title th:text>Spring Boot App</title>
+    <title>Spring Boot App</title>
 </head>
 <body>
     <h1>Detalles del Usuario</h1>
@@ -13,5 +13,20 @@
         <li th:if="${user.email != null}" th:text="${user.email}"></li>
         <li th:if="${user.email == null}" th:text="${'No tiene email'}"></li>
     </ul>
+
+    <!-- Thymeleaf Normal Redirection -->
+    <a th:href="@{/list}">Volver a la lista de usuarios</a>
+
+    <!-- Request Params -->
+    <a th:href="@{/api-params/greet?message=Hola bro}">Ver mensaje</a>
+    <a th:href="@{/api-params/greet(message=${message})}">Ver mensaje</a>
+    <a th:href="@{/api-params/greet2(message=${message}, code=${code})}">Ver mensaje</a>
+    <a th:href="@{/api-params/greet2(message='Hola broooo', code=${code})}">Ver mensaje</a>
+
+    <!-- Path Variables -->
+    <a th:href="@{/path-var/baz/{param}(param='Hola broooo')}">Ver mensaje</a>
+    <a th:href="@{/path-var/baz/Hola%20bro%20como%20vas}">Ver mensaje</a>
+    <a th:href="@{'/path-var/baz/' + 'Hola bro como vasssss'}">Ver mensaje</a>
+    <a th:href="@{'/path-var/baz/' + ${message}}">Ver mensaje</a>
 </body>
 </html>
